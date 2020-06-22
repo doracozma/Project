@@ -1,2 +1,2 @@
 # Slot
-Licenta
+Licenta finala
