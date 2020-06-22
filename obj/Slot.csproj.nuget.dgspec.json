@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[4.3.4, )"
             },
+            "Xamarin.Android.Support.Compat": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
             "Xamarin.Android.Support.Core.Utils": {
               "target": "Package",
               "version": "[28.0.0.3, )"
@@ -58,7 +62,19 @@
               "target": "Package",
               "version": "[28.0.0.3, )"
             },
+            "Xamarin.Android.Support.Fragment": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
             "Xamarin.Android.Support.Media.Compat": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.Android.Support.v4": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.Android.Support.v7.AppCompat": {
               "target": "Package",
               "version": "[28.0.0.3, )"
             },
@@ -81,6 +97,10 @@
             "Xamarin.Google.Android.Material": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "Xamarin.GooglePlayServices.Gcm": {
+              "target": "Package",
+              "version": "[71.1600.1, )"
             },
             "Xamarin.GooglePlayServices.Location": {
               "target": "Package",

@@ -1,5 +1,6 @@
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+androidx.appcompat.widget.Toolbar;obj\Debug\90\res\layout\activity_main.xml
 androidx.coordinatorlayout.widget.CoordinatorLayout;obj\Debug\90\res\layout\activity_main.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
@@ -15,13 +16,18 @@ external-path;C:\Users\Dora\source\repos\Slot\obj\Debug\90\lp\40\jl\res\xml\xama
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 fragment;obj\Debug\90\res\layout\activity_main.xml
-FrameLayout;obj\Debug\90\res\layout\activity_main.xml
 gradient;obj\Debug\90\res\drawable\roundbutton.xml
+group;obj\Debug\90\res\menu\navmenu.xml
 ImageButton;obj\Debug\90\res\layout\activity_main.xml
 ImageView;obj\Debug\90\res\layout\activity_main.xml
 item;obj\Debug\90\res\drawable\roundbutton.xml
+item;obj\Debug\90\res\menu\navmenu.xml
+item;obj\Debug\90\res\menu\toolbar_menu.xml
 item;obj\Debug\90\res\values\styles.xml
 layer-list;obj\Debug\90\res\drawable\roundbutton.xml
+LinearLayout;obj\Debug\90\res\layout\activity_main.xml
+menu;obj\Debug\90\res\menu\navmenu.xml
+menu;obj\Debug\90\res\menu\toolbar_menu.xml
 padding;obj\Debug\90\res\drawable\roundbutton.xml
 path;obj\Debug\90\res\drawable\direction.xml
 path;obj\Debug\90\res\drawable\place.xml

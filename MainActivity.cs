@@ -2,71 +2,65 @@
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
-using Android.Widget;
 using Android.Gms.Maps;
 using Android;
 using System;
 using Android.Gms.Maps.Model;
 using Android.Gms.Location;
-using Android.Support.V4.App;
+using Android.Content.PM;
+using ActivityCompat = Android.Support.V4.App.ActivityCompat;
+using Android.Views;
+using Android.Support.V7.Widget;
 using Slot.Helpers;
-
 
 namespace Slot
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity, IOnMapReadyCallback
     {
         readonly string[] permissionGroup = { Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation };
 
-        TextView placeTextView;
-        Button getDirectionButton;
+        Android.Widget.TextView placeTextView;
 
         GoogleMap map;
-        FusedLocationProviderClient locationProviderClient;
+        FusedLocationProviderClient LocationProviderClient;
         Android.Locations.Location myLastLocation;
-        LatLng myposition;
-        LatLng destinationPoint;
+        private LatLng myposition;
 
-        MapHelpers mapHelper = new MapHelpers();
+
+        public bool activityCompat { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
+            // Set the view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
-            RequestPermissions(permissionGroup, 0);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = "Slot Toolbar";
 
+            RequestPermissions(permissionGroup, 0);
+          
             SupportMapFragment mapFragment = (SupportMapFragment)SupportFragmentManager.FindFragmentById(Resource.Id.map);
             mapFragment.GetMapAsync(this);
 
-            placeTextView = (TextView)FindViewById(Resource.Id.placeTextView);
-            getDirectionButton = (Button)FindViewById(Resource.Id.getDirectionsButton);
-            getDirectionButton.Click += GetDirectionButton_Click;
+            placeTextView = (Android.Widget.TextView)FindViewById(Resource.Id.placeTextView);
 
+ 
 
         }
 
-        private async void GetDirectionButton_Click(object sender, EventArgs e)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
-            string key = Resources.GetString(Resource.String.mapkey);
-            string directionJson = await mapHelper.GetDirectionJsonAsync(myposition, destinationPoint, key);
-            Console.WriteLine(directionJson);
-        }
-
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-
+            
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            if (grantResults.Length < 1)
+            if(grantResults.Length < 1)
             {
                 return;
             }
 
-            if (grantResults[0] == (int)Android.Content.PM.Permission.Granted)
+            if(grantResults[0] == (int)Android.Content.PM.Permission.Granted)
             {
                 DisplayLocation();
             }
@@ -80,44 +74,41 @@ namespace Slot
 
             map.UiSettings.ZoomControlsEnabled = true;
             map.CameraMoveStarted += Map_CameraMoveStarted;
-            map.CameraChange += Map_CameraIdle;
-
+            map.CameraIdle += Map_CameraIdle;
 
             if (CheckPermission())
             {
                 DisplayLocation();
             }
-            DisplayLocation();
         }
 
-        private async void Map_CameraIdle(object sender, GoogleMap.CameraChangeEventArgs e)
+        private async void Map_CameraIdle(object sender, EventArgs e)
         {
-
-            destinationPoint = map.CameraPosition.Target;
+            var position = map.CameraPosition.Target;
             string key = Resources.GetString(Resource.String.mapkey);
-            string address = await mapHelper.FindCoordinateAddress(destinationPoint, key);
-
+            string address =  await MapHelpers.FindCordinateAddress(position, key);
             if (!string.IsNullOrEmpty(address))
             {
                 placeTextView.Text = address;
             }
             else
             {
-
                 placeTextView.Text = "Incotro?";
             }
+            
+            placeTextView.Text = address;
+        
         }
 
         private void Map_CameraMoveStarted(object sender, GoogleMap.CameraMoveStartedEventArgs e)
         {
-
-            placeTextView.Text = "Se seteaza o noua locatie";
+            placeTextView.Text = "Setting new location";
         }
 
-        bool CheckPermission()
+        bool  CheckPermission()
         {
             bool permissionGranted = false;
-            if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation) != Android.Content.PM.Permission.Granted &&
+          if(ActivityCompat.CheckSelfPermission(this, Manifest.Permission.AccessCoarseLocation) != Android.Content.PM.Permission.Granted && 
                 ActivityCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation) != Android.Content.PM.Permission.Granted)
             {
                 permissionGranted = false;
@@ -128,19 +119,43 @@ namespace Slot
             }
             return permissionGranted;
         }
+
         async void DisplayLocation()
         {
-            if (locationProviderClient == null)
+            if(LocationProviderClient  == null)
             {
-                locationProviderClient = LocationServices.GetFusedLocationProviderClient(this);
+                LocationProviderClient = LocationServices.GetFusedLocationProviderClient(this);      
             }
-            myLastLocation = await locationProviderClient.GetLastLocationAsync();
-            if (myLastLocation != null)
+            myLastLocation = await LocationProviderClient.GetLastLocationAsync();
+            if(myLastLocation != null)
             {
                 myposition = new LatLng(myLastLocation.Latitude, myLastLocation.Longitude);
                 map.AnimateCamera(CameraUpdateFactory.NewLatLngZoom(myposition, 15));
             }
         }
-    }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            base.MenuInflater.Inflate(Resource.Menu.toolbar_menu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            string textToShow;
+            if (item.ItemId == Resource.Id.menu_info)
+                textToShow = "Informations";
+            else
+                textToShow = "Overflow";
+
+            Android.Widget.Toast.MakeText(this, item.TitleFormatted + ": " + textToShow,
+                Android.Widget.ToastLength.Long).Show();
+
+            return base.OnOptionsItemSelected(item);
+        }
+
+
+    }
 }
+
+ 

@@ -86,9 +86,12 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Google.Guava.ListenableFuture.dll",
 		"Xamarin.GooglePlayServices.Base.dll",
 		"Xamarin.GooglePlayServices.Basement.dll",
+		"Xamarin.GooglePlayServices.Gcm.dll",
+		"Xamarin.GooglePlayServices.Iid.dll",
 		"Xamarin.GooglePlayServices.Location.dll",
 		"Xamarin.GooglePlayServices.Maps.dll",
 		"Xamarin.GooglePlayServices.Places.PlaceReport.dll",
+		"Xamarin.GooglePlayServices.Stats.dll",
 		"Xamarin.GooglePlayServices.Tasks.dll",
 	};
 	public static String[] Dependencies = new String[]{

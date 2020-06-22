@@ -3,6 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>Samsung SM-G9350</SelectedDevice>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
-    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
+    <AndroidDesignerPreferredDevice>Nexus 5</AndroidDesignerPreferredDevice>
   </PropertyGroup>
 </Project>

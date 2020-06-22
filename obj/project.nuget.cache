@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6EKoCAv3TGpEDsoKIoQslkPMELluzWzTE/J7gg8OT915g5C1tuxCgR2h+O+VeH7qxWn/Qt3sMnocbpmvj6pcSQ==",
+  "dgSpecHash": "omgu9fk+HPbZMxoretOcJU05OPCxg2R4hWKc576PWWuWa3irKa5pm2ea9gNcy002ceNXA4wTuztpwq0lYPSDkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dora\\source\\repos\\Slot\\Slot.csproj",
   "expectedPackageFiles": [
@@ -90,9 +90,12 @@
     "C:\\Users\\Dora\\.nuget\\packages\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
     "C:\\Users\\Dora\\.nuget\\packages\\xamarin.googleplayservices.base\\71.1610.1\\xamarin.googleplayservices.base.71.1610.1.nupkg.sha512",
     "C:\\Users\\Dora\\.nuget\\packages\\xamarin.googleplayservices.basement\\71.1620.2\\xamarin.googleplayservices.basement.71.1620.2.nupkg.sha512",
+    "C:\\Users\\Dora\\.nuget\\packages\\xamarin.googleplayservices.gcm\\71.1600.1\\xamarin.googleplayservices.gcm.71.1600.1.nupkg.sha512",
+    "C:\\Users\\Dora\\.nuget\\packages\\xamarin.googleplayservices.iid\\71.1600.1\\xamarin.googleplayservices.iid.71.1600.1.nupkg.sha512",
     "C:\\Users\\Dora\\.nuget\\packages\\xamarin.googleplayservices.location\\71.1600.1\\xamarin.googleplayservices.location.71.1600.1.nupkg.sha512",
     "C:\\Users\\Dora\\.nuget\\packages\\xamarin.googleplayservices.maps\\71.1610.1\\xamarin.googleplayservices.maps.71.1610.1.nupkg.sha512",
     "C:\\Users\\Dora\\.nuget\\packages\\xamarin.googleplayservices.places.placereport\\71.1600.1\\xamarin.googleplayservices.places.placereport.71.1600.1.nupkg.sha512",
+    "C:\\Users\\Dora\\.nuget\\packages\\xamarin.googleplayservices.stats\\71.1601.1\\xamarin.googleplayservices.stats.71.1601.1.nupkg.sha512",
     "C:\\Users\\Dora\\.nuget\\packages\\xamarin.googleplayservices.tasks\\71.1601.1\\xamarin.googleplayservices.tasks.71.1601.1.nupkg.sha512"
   ],
   "logs": []

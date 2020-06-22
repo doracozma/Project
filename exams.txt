@@ -1,0 +1,15 @@
+date examen 
+apsi 31.05
+bi 28.05
+webs 02.06
+nosql 06.06
+rest oop 05.06
+front end 25.05
+  
+
+APSI        26.05   31.05
+BI             25.05   28.05
+WEBS     02.06   05.06-
+NOSQL   02.06   06.06-
+OOP         29.05   05.06-
+FRONT    25.05    06.06

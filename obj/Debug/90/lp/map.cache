@@ -43,9 +43,12 @@ Xamarin.Google.Android.Material
 Xamarin.Google.Guava.ListenableFuture
 Xamarin.GooglePlayServices.Base
 Xamarin.GooglePlayServices.Basement
+Xamarin.GooglePlayServices.Gcm
+Xamarin.GooglePlayServices.Iid
 Xamarin.GooglePlayServices.Location
 Xamarin.GooglePlayServices.Maps
 Xamarin.GooglePlayServices.Places.PlaceReport
+Xamarin.GooglePlayServices.Stats
 Xamarin.GooglePlayServices.Tasks
 androidx.versionedparcelable.versionedparcelable
 androidx.lifecycle.lifecycle-runtime

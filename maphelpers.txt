@@ -1,0 +1,2 @@
+map Helpers
+https://maps.googleapis.com/maps/api/geocode/json?latlng=47.657223,%2023.524842&key=AIzaSyD5tTtNSJQTE6fdHr26R89VUv-HMu_uHUE
